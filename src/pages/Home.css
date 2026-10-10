@@ -1,0 +1,363 @@
+.bloom-page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 4vw, 60px);
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.96) 0 24%, rgba(255, 249, 251, 0.92) 40%, rgba(255, 222, 231, 0.72) 100%),
+    linear-gradient(135deg, #ffc6d7 0%, #fff8fb 42%, #ffd5e1 100%);
+}
+
+
+.bloom-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background:
+    radial-gradient(circle at 25% 44%, rgba(255, 255, 255, 0.66), transparent 18%),
+    radial-gradient(circle at 66% 54%, rgba(255, 255, 255, 0.58), transparent 22%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.34), transparent 28%, transparent 72%, rgba(255, 255, 255, 0.28));
+  filter: blur(7px);
+}
+
+.silk {
+  position: absolute;
+  width: 47vw;
+  height: 30vw;
+  min-width: 560px;
+  min-height: 360px;
+  z-index: -3;
+  background: rgba(255, 157, 185, 0.3);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.silk::after {
+  content: '';
+  position: absolute;
+  inset: 24% 10% 12% 12%;
+  border: 2px solid rgba(239, 120, 156, 0.42);
+  border-left-color: rgba(255, 255, 255, 0.72);
+  border-bottom-color: rgba(255, 255, 255, 0.44);
+  border-radius: 50%;
+}
+
+.silk-top {
+  top: -19vw;
+  left: -12vw;
+  border-radius: 0 0 48% 58%;
+  transform: rotate(-10deg);
+}
+
+.silk-bottom {
+  right: -15vw;
+  bottom: -16vw;
+  border-radius: 56% 42% 0 0;
+  transform: rotate(-9deg);
+}
+
+.bouquet {
+  position: absolute;
+  z-index: -1;
+  width: clamp(310px, 31vw, 560px);
+  filter: drop-shadow(16px 20px 20px rgba(140, 70, 88, 0.22));
+  pointer-events: none;
+  animation: bouquetFloat 7s ease-in-out 1;
+}
+
+.bouquet-left {
+  left: -8vw;
+  bottom: -13.4vw;
+  transform: rotate(90deg) scaleX(-1);
+  transform-origin: 48% 52%;
+}
+
+.bouquet-right {
+  top: -13.2vw;
+  right: -4.8vw;
+  transform: rotate(-90deg);
+  transform-origin: 50% 52%;
+  animation-delay: -2.1s;
+}
+
+.brand-panel {
+  position: relative;
+  width: min(78vw, 980px);
+  margin-top: clamp(18px, 2.2vw, 44px);
+  text-align: center;
+  animation: titleIn 950ms ease-out both;
+}
+
+.brand-panel h1 {
+  margin: 0;
+  color: #c74772;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.6rem, 4.7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+  text-shadow: 0 10px 18px rgba(166, 68, 101, 0.12);
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.brand-panel p {
+  margin: clamp(14px, 1.5vw, 22px) 0 0;
+  color: #424247;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.62rem, 0.83vw, 0.88rem);
+  font-weight: 500;
+  letter-spacing: clamp(0.16em, 0.58vw, 0.46em);
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.divider {
+  display: grid;
+  grid-template-columns: minmax(56px, 150px) auto minmax(56px, 150px);
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: clamp(20px, 2.4vw, 42px);
+  color: #dc6d92;
+}
+
+.divider span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e48cac);
+}
+
+.divider span:last-child {
+  background: linear-gradient(90deg, #e48cac, transparent);
+}
+
+.divider strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  line-height: 1;
+  animation: pulseHeart 1.8s ease-in-out infinite;
+}
+
+.petal {
+  position: absolute;
+  z-index: -2;
+  width: clamp(38px, 4vw, 72px);
+  aspect-ratio: 0.72;
+  border-radius: 70% 12% 70% 18%;
+  background:
+    radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.58), transparent 30%),
+    linear-gradient(140deg, rgba(231, 62, 109, 0.58), rgba(255, 154, 176, 0.28));
+  filter: blur(4px) drop-shadow(0 14px 12px rgba(198, 87, 114, 0.16));
+  opacity: 0.56;
+  animation: petalDrift 8s ease-in-out infinite;
+}
+
+.petal-one {
+  left: 15.8%;
+  top: 28.4%;
+  transform: rotate(-32deg);
+}
+
+.petal-two {
+  left: 31.6%;
+  bottom: 17.7%;
+  width: clamp(32px, 3vw, 58px);
+  transform: rotate(31deg);
+  animation-delay: -1.8s;
+}
+
+.petal-three {
+  right: 13.4%;
+  bottom: 30.8%;
+  transform: rotate(65deg);
+  animation-delay: -3.1s;
+}
+
+.petal-four {
+  right: 32.6%;
+  top: 17.1%;
+  width: clamp(30px, 2.8vw, 54px);
+  transform: rotate(38deg);
+  animation-delay: -4.4s;
+}
+
+@keyframes bouquetFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes petalDrift {
+  0%,
+  100% {
+    translate: 0 0;
+    opacity: 0.5;
+  }
+
+  50% {
+    translate: 14px -18px;
+    opacity: 0.76;
+  }
+}
+
+@keyframes pulseHeart {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .brand-panel {
+    width: min(82vw, 680px);
+  }
+
+  .brand-panel h1 {
+    font-size: clamp(2.2rem, 6.6vw, 4.3rem);
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  .brand-panel p {
+    max-width: 600px;
+    margin-inline: auto;
+    letter-spacing: 0.24em;
+  }
+
+  .bouquet {
+    width: clamp(245px, 40vw, 400px);
+  }
+
+  .bouquet-left {
+    left: -24vw;
+    bottom: -22vw;
+  }
+
+  .bouquet-right {
+    top: -22vw;
+    right: -21vw;
+  }
+}
+
+@media (max-width: 620px) {
+  .bloom-page {
+    min-height: 100svh;
+    place-items: center;
+    padding: 28px 18px 40px;
+  }
+
+  .brand-panel {
+    width: min(100%, 390px);
+    margin-top: 0;
+  }
+
+  .brand-panel h1 {
+    font-size: clamp(1.65rem, 7vw, 2.6rem);
+    line-height: 1.04;
+  }
+
+  .brand-panel p {
+    margin-top: 14px;
+    max-width: 310px;
+    font-size: clamp(0.48rem, 1.7vw, 0.6rem);
+    letter-spacing: 0.11em;
+    line-height: 1.7;
+  }
+
+  .divider {
+    margin-top: 24px;
+    gap: 14px;
+    grid-template-columns: minmax(36px, 76px) auto minmax(36px, 76px);
+  }
+
+  .divider strong {
+    font-size: 1.05rem;
+  }
+
+  .silk {
+    min-width: 350px;
+    min-height: 250px;
+  }
+
+  .silk-top {
+    top: -110px;
+    left: -160px;
+  }
+
+  .silk-bottom {
+    right: -190px;
+    bottom: -80px;
+  }
+
+  .bouquet-left {
+    left: -32vw;
+    bottom: -26vw;
+  }
+
+  .bouquet-right {
+    top: -26vw;
+    right: -32vw;
+  }
+
+  .petal-four {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .bloom-page {
+    padding: 28px 14px 40px;
+  }
+
+  .brand-panel {
+    width: min(100%, 330px);
+  }
+
+  .brand-panel h1 {
+    font-size: clamp(1.32rem, 6.7vw, 1.7rem);
+  }
+
+  .brand-panel p {
+    max-width: 270px;
+    letter-spacing: 0.1em;
+  }
+
+  .bouquet {
+    width: clamp(235px, 74vw, 300px);
+  }
+
+  .bouquet-left {
+    left: -30vw;
+    bottom: -22vw;
+  }
+
+  .bouquet-right {
+    top: -22vw;
+    right: -30vw;
+  }
+}

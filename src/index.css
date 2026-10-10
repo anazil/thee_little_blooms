@@ -1,0 +1,29 @@
+:root {
+  color-scheme: light only;
+  color: #433841;
+  background: #fff4f8;
+  font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  color-scheme: light only;
+}
+
+body {
+  min-height: 100svh;
+  background: #fff4f8;
+  color: #433841;
+}

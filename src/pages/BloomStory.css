@@ -1,0 +1,136 @@
+.bloom-about {
+  position: relative;
+  min-height: 65svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(40px, 6vw, 90px) clamp(20px, 4vw, 60px);
+  overflow: hidden;
+  text-align: center;
+}
+
+.bloom-about::before,
+.bloom-about::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bloom-about::before {
+  width: clamp(220px, 34vw, 460px);
+  height: clamp(220px, 34vw, 460px);
+  left: -8%;
+  bottom: -12%;
+  background: radial-gradient(circle, rgba(255, 189, 209, 0.4), transparent 65%);
+  filter: blur(6px);
+}
+
+.bloom-about::after {
+  width: clamp(160px, 24vw, 340px);
+  height: clamp(160px, 24vw, 340px);
+  right: -6%;
+  top: -10%;
+  background: radial-gradient(circle, rgba(255, 214, 228, 0.5), transparent 65%);
+  filter: blur(6px);
+}
+
+.bloom-about h2 span,
+.bloom-about p span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.bloom-about h2.is-in-view span,
+.bloom-about p.is-in-view span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bloom-about h2 {
+  position: relative;
+  margin: 0 0 clamp(12px, 1.2vw, 18px);
+  color: #c74772;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.bloom-about p {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  color: #5d4f56;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.8;
+  letter-spacing: 0.005em;
+}
+
+.shop-btn {
+  position: relative;
+  display: inline-block;
+  margin-top: clamp(26px, 3vw, 40px);
+  padding: 0.85em 2.2em;
+  border: 1px solid #d98aa6;
+  border-radius: 999px;
+  background: linear-gradient(140deg, #e0648f, #c74772);
+  color: #fff8fb;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.68rem, 0.9vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.45em);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  will-change: opacity, transform;
+}
+
+.shop-btn.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shop-btn:hover {
+  background: linear-gradient(140deg, #d55683, #b93c64);
+  box-shadow: 0 12px 24px rgba(199, 71, 114, 0.3);
+}
+
+.shop-btn:focus-visible {
+  outline: 2px solid #c74772;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-btn {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom-about h2 span,
+  .bloom-about p span {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

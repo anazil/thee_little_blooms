@@ -1,0 +1,12 @@
+.site-footer {
+  padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 60px) clamp(24px, 3vw, 36px);
+  text-align: center;
+}
+
+.footer-copy {
+  margin: 0;
+  color: #c9a3b1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
